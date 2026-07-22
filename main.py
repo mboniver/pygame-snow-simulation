@@ -1,6 +1,7 @@
 import pygame
 import random
 pygame.init()
+pygame.display.set_caption("Snow Simulation")
 
 class Config:
     W, H = 800, 600
@@ -9,7 +10,7 @@ class Config:
     fps_cap = 30
     mouse_pos = (-100,-100)
 
-class Color:
+class Colors:
     BLACK = (0, 0, 0)
     SKY = (15, 20, 45)
     BLUE = (0, 0, 90)
@@ -20,7 +21,7 @@ class Snowflake:
         self.y =y
         self.r =r
         self.speed= s
-        self.Color= Color.BLUE
+        self.Color= Colors.BLUE
         self.set_color()
         self.set_wind()
 
@@ -63,7 +64,7 @@ while Config.is_run:
     fps_clock.tick(Config.fps_cap)
     frames += 1
 
-    Config.window.fill(Color.SKY)
+    Config.window.fill(Colors.SKY)
 
     for b in mass_balls:
         b.fall()
